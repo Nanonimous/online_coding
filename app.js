@@ -2,7 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import axios from "axios";
 
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 //middlewares ... 
@@ -107,6 +107,6 @@ app.post("/run", async (req,res)=>{
 
 
 
-app.listen(port,()=>{
+app.listen(PORT,()=>{
   console.log(`server is running in the port ${port}`);
 });
