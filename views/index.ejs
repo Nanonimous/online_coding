@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;900&family=Roboto:wght@300;400;500;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;900&display=swap" rel="stylesheet">
+  <title>online-complier</title>
+</head>
+<body>
+  <div class="mouse"></div>
+  <div class="curser_pointer">
+  </div>
+  <section id="grad1"></section>
+  <section id="grad2"></section>
+  <section id="grad3"></section>
+  <section id="grad4"></section>
+
+<section class="nav-bar-section">
+    <!-- nav bar section ...-->
+    <div class="nav-bar">
+        <div class="logo">cody</div>
+        <li class="home"><a href="" class="home-page">home</a></li>
+        <li class="about"><a href="" class="about-page">about</a></li>
+    </div>
+</section>
+
+
+  <section class="heading_section">
+      <div class="heading"> Online-Coding.</div>
+      <p class="subheading">programming-languages-supported are python, c++, c#, c, java, Javascript</p>     
+
+  </section>
+
+  <section class="main-body-section">
+    <!--main container.. -->
+    <div class="main-container">
+      <!-- input section ,, left side ... -->
+        <!-- input section top heading -->
+          <div class="input-header">
+            <div class="lang-name"></div>
+
+        <form action="/run" method="post">
+          <div class="alginit">
+            <select name="programming_languages" class="select_option">
+              <option value="">--choose programming language--</option>
+              <option value=0>C-programming</option>
+              <option value=1>C++</option>
+              <option value=2>Csharp</option>
+              <option value=3>Java</option>
+              <option value=5>Python</option>
+              <option value=4>Javascript</option>
+            </select>
+            <input type="submit" value="Run" class="run_button">
+          </div>
+          </div>
+          <!-- input entering section-->
+          <div class="input">
+          <div class="editor">
+            <div class="line-numbers">
+              <span></span>
+            </div>
+            <textarea name="code" id="input_area"></textarea>
+          </div>
+       </form>
+        </div>
+             
+      <!-- output section ,, right side..-->
+
+      <div class="output-header">
+        <div class="output-name">OUTPUT</div>
+      </div>
+      <div class="output">
+
+        <!--output displaying section -->
+        <div class="output-display">
+          <div class="output_here">
+            <% if(locals.output){%>
+              <%= output %>
+              <br>
+              <%= status_mesage %>
+              <% }%>
+
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+<script>
+      const textarea = document.querySelector('textarea')
+      const lineNumbers = document.querySelector('.line-numbers')
+      textarea.addEventListener('keyup', event => {
+        const numberOfLines = event.target.value.split('\n').length
+
+        lineNumbers.innerHTML = Array(numberOfLines)
+          .fill('<span></span>')
+          .join('')
+      })
+
+      textarea.addEventListener('keydown', event => {
+        if (event.key === 'Tab') {
+          const start = textarea.selectionStart
+          const end = textarea.selectionEnd
+
+          textarea.value = textarea.value.substring(0, start) + '\t' + textarea.value.substring(end)
+          textarea.focus()      
+
+          event.preventDefault()
+        }
+      })
+
+      document.addEventListener("mousemove",(e)=>{
+        x = e.screenX;
+        y = e.screenY;
+        console.log(e.screenX);
+        console.log(e.screenY);
+        document.querySelector(".mouse").style.top = (y - 112)+"px";
+        document.querySelector(".mouse").style.left = (x-3.9)+"px";
+        document.querySelector(".curser_pointer").style.top = (y - 112)+"px";
+        document.querySelector(".curser_pointer").style.left = (x-3.9)+"px";
+
+      });
+    </script>
+
+</body>
+</html>
