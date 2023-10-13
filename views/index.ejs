@@ -24,7 +24,6 @@
     <div class="nav-bar">
         <div class="logo">cody</div>
         <li class="home"><a href="" class="home-page">home</a></li>
-        <li class="about"><a href="" class="about-page">about</a></li>
     </div>
 </section>
 
@@ -46,7 +45,6 @@
         <form action="/run" method="post">
           <div class="alginit">
             <select name="programming_languages" class="select_option">
-              <option value="">--choose programming language--</option>
               <option value=0>C-programming</option>
               <option value=1>C++</option>
               <option value=2>Csharp</option>
@@ -83,7 +81,6 @@
               <br>
               <%= status_mesage %>
               <% }%>
-
           </div>
         </div>
       </div>
@@ -123,6 +120,16 @@
         document.querySelector(".curser_pointer").style.left = (x-3.9)+"px";
 
       });
+
+      var e = document.querySelector(".select_option");
+        function onChange() {
+        var value = e.value;
+        var text = e.options[e.selectedIndex].text;
+        document.querySelector(".lang-name").innerHTML = text;
+      }
+      e.onchange = onChange;
+      onChange();
+      
     </script>
 
 </body>
