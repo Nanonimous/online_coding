@@ -108,5 +108,5 @@ app.post("/run", async (req,res)=>{
 
 
 app.listen(PORT,()=>{
-  console.log(`server is running in the port ${port}`);
+  console.log(`server is running in the port ${PORT}`);
 });
